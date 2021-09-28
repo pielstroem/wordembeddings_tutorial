@@ -71,7 +71,7 @@ FastText (Bojanowski et al. 2016) addresses the problem of out-of-vocabulary wor
 
 ## BERT - Contextualized embeddings from complex language models
 
-The solution for the polysemy problem is provided by **contextualized** embeddings. Rather than representing each instance of the same word with the same vector, like the **static** embeddings introduced before do, they provide an individual vector for each and every new token depending on its current context. If we want to start working with context-dependent embeddings, we do not download a set of words or sub-word units and their respective embedding vectors. What we download is a vast (several GB) statistical model with an enormous number of parameters, trained on an even larger number of examples, that allows us to generate embedding vectors for words in a text.
+The solution for the polysemy problem is provided by **contextualized** embeddings. Rather than representing each instance of the same word with the same vector, like the **static** embeddings introduced before do, they provide an individual vector for each and every new token depending on its current context. If we want to start working with context-dependent embeddings, we do not download a set of words or sub-word units and their respective embedding vectors. What we download is a vast statistical model with an enormous number of parameters, trained on an even larger number of examples, that allows us to generate vector representations *on-the-fly* for any word in a given text.
 
 The model behind this is an **artificial neural network** with a highly complex architecture. Currently the most popular example for that type of embedding model is **BERT** (Bidirectional Encoder Representation from Transformers; Devlin et al. 2018). It was not the first system applying language models based on **deep learning** (complex artificial neural networks with multiple hidden layers) to compute wordembeddings, but it was the first to adopt a network architecture known as **bidirectional transformers** that represents the current *state-of-the-art* in terms of downstream-task performance. Accordingly, many currently used models, even though having seen several incremental improvements, are considered belonging to the BERT family.
 
@@ -89,9 +89,7 @@ To deal with out-of-vocabulary words BERT also uses a tokenizer that looks at **
 
 - BERT **can handle polysemy**.
 
-- BERT models are **large** (several GB).
-
-- Embeddings do not represent a word in general, only one specific instance.
+- **Contextualized** embeddings do not represent a word in general, only one specific instance.
 
 ## What you need to run the example code
 
@@ -101,8 +99,6 @@ To reproduce the example code shown here a distribution of `Python 3.x` is requi
 - On Unix systems, many people rely on [PyEnv](https://github.com/pyenv/pyenv) to create and manage `Python` systems and virtual environments.
 - If you are familiar with [Docker](https://www.docker.com/) and unwilling to mess around with the intricacies of managing your `Python` environment, you can simply run your [Machine Learning Workspace](https://github.com/ml-tooling/ml-workspace) in Docker and have everything you need there. Why can you use a 'Machine Learning Workspace' to do statistics? Well, many machine learning algorithms really are just statistical procedures put to a slightly alternative use. 
 - Probably the easiest solution is not to use any `Python` on your computer at all, but to work on a server that has everything installed for you. [Google Colab](https://colab.research.google.com/notebooks/intro.ipynb) for example offers that service free of charge, but you need Google account to use it productively. 
-
-Wordembeddings and embedding-based solutions are implemented in a number of **packages**. The examples shown here rely on the `flair` library.
 
 ## Acknowledgements
 This tutorial has been deveoped as part of project [CLARIAH-DE](https://www.clariah.de/), which was funded by the German [Federal Ministry of Education and Research](https://www.bmbf.de/bmbf/en/home/home_node.html).
